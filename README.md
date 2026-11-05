@@ -2,13 +2,13 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.png">
     <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.png">
-    <img alt="Velocity logo with the tagline Accelerate to Velocity, Founders Kit" src="assets/hero-light.png" width="800">
+    <img alt="Velocity logo with the tagline Accelerate Momentum, Founders Kit" src="assets/hero-light.png" width="800">
   </picture>
 </p>
 
 # Founders Kit: Velocity Edition ⚙️
 
-> **Accelerate to Velocity.** Every important Velocity link, event and signup in one place, plus tools and Claude skills for the work that gets founders in: customer discovery, cold outreach, letters of intent and applications.
+> **Accelerate Momentum.** Every important Velocity link, event and signup in one place, plus tools and Claude skills for the work that gets founders in: customer discovery, cold outreach, letters of intent and applications.
 
 [![GitHub stars](https://img.shields.io/github/stars/bing1100/founders-kit-velocity?style=social)](https://github.com/bing1100/founders-kit-velocity)
 [![GitHub forks](https://img.shields.io/github/forks/bing1100/founders-kit-velocity?style=social)](https://github.com/bing1100/founders-kit-velocity/network)
