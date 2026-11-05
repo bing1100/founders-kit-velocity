@@ -1,0 +1,94 @@
+{
+  "common": {
+    "Date": {"prompt": "Letter date (YYYY-MM-DD)", "default": "today"},
+    "StartupName": {"prompt": "Your company's legal name", "example": "Northline Robotics Inc."},
+    "StartupDescription": {"prompt": "What your product does, in one plain sentence anyone can picture", "example": "a bench-top robot that runs routine blood tests"},
+    "StartupSignerName": {"prompt": "Who signs for your company", "example": "Jane Doe"},
+    "StartupSignerTitle": {"prompt": "Their title", "example": "CEO"},
+    "StartupEmail": {"prompt": "Their email", "example": "jane@northline.example"},
+    "CounterpartyName": {"prompt": "The other organization's legal name", "example": "Example Regional Health"},
+    "SignerName": {"prompt": "Who signs for them (a named person)", "example": "Sarah Smith"},
+    "SignerTitle": {"prompt": "Their title (someone who can influence or approve budget)", "example": "Director of Laboratory Services"},
+    "SignerEmail": {"prompt": "Their email", "example": "sarah.smith@example.org"},
+    "Problem": {"prompt": "The problem, as the counterparty describes it", "example": "routine blood tests are run by hand, which ties up two technologists on every shift"},
+    "ExpiryDate": {"prompt": "Date this letter lapses (YYYY-MM-DD; blank = 90 days after the letter date)", "default": "plus90"},
+    "NextStep": {"prompt": "The specific next step, with a date", "example": "a scoping call with the lab and IT teams by 2027-01-15"},
+    "GoverningLaw": {"prompt": "Governing law", "default": "the Province of Ontario and the federal laws of Canada that apply there"},
+    "Currency": {"prompt": "Currency", "default": "CAD"}
+  },
+  "types": {
+    "customer": {
+      "title": "Customer intent to purchase",
+      "use": "A prospect intends to buy once the product meets stated needs. Traction evidence for investors and grants.",
+      "fields": {
+        "Quantity": {"prompt": "How much they expect to buy (units, seats, sites)", "example": "2 units across 1 site"},
+        "PriceIndication": {"prompt": "Price or budget range they indicated", "example": "$40,000 to $60,000 per year"},
+        "TargetDate": {"prompt": "When they expect to buy (date or quarter)", "example": "Q3 2027"},
+        "PurchaseConditions": {"prompt": "What must be true before they buy", "example": "the robot matches manual results on a 200-sample comparison"},
+        "AnnualValue": {"prompt": "Indicative annual value as a plain number, for your pipeline", "example": "50000", "scoring_only": true}
+      }
+    },
+    "pilot": {
+      "title": "Pilot intent",
+      "use": "A prospect intends to run a time-boxed pilot with agreed success criteria.",
+      "fields": {
+        "PilotScope": {"prompt": "What the pilot covers", "example": "one robot running the top 5 routine panels on the day shift"},
+        "PilotDuration": {"prompt": "How long it runs", "example": "8 weeks"},
+        "TargetDate": {"prompt": "Target start (date or quarter)", "example": "Q2 2027"},
+        "SuccessCriteria": {"prompt": "Measurable success criteria", "example": "95% agreement with manual results and a 30% reduction in technologist hours"},
+        "PilotFee": {"prompt": "Pilot fee (blank if unpaid; a paid pilot is much stronger evidence)", "example": "$10,000", "optional": true},
+        "ConversionIntent": {"prompt": "What happens if the pilot succeeds", "example": "enter discussions to deploy at 3 further sites at $40,000 per unit per year", "optional": true},
+        "AnnualValue": {"prompt": "Indicative annual value if it converts, as a plain number", "example": "120000", "scoring_only": true}
+      }
+    },
+    "design-partner": {
+      "title": "Design partner",
+      "use": "A prospect intends to shape the product through regular feedback in exchange for early access.",
+      "fields": {
+        "PartnerCommitment": {"prompt": "What they will give (time, data, access)", "example": "a 45-minute feedback session every two weeks with the lab supervisor"},
+        "PartnerDuration": {"prompt": "How long", "example": "6 months"},
+        "TargetDate": {"prompt": "Target start (date or quarter)", "example": "January 2027"},
+        "PartnerBenefit": {"prompt": "What they get", "example": "early access and 30% off list price for the first two years"},
+        "PriceIndication": {"prompt": "Expected price after the partnership (blank if not discussed)", "example": "$40,000 per year", "optional": true},
+        "AnnualValue": {"prompt": "Indicative annual value if they convert, as a plain number", "example": "40000", "scoring_only": true}
+      }
+    },
+    "health-pilot": {
+      "title": "Health organization pilot intent",
+      "use": "A hospital, clinic or lab intends to pilot. Adds privacy, ethics and procurement steps.",
+      "fields": {
+        "ClinicalChampion": {"prompt": "Clinical lead who will sponsor the pilot, with title", "example": "Dr. Alex Chen, Chief of Laboratory Medicine"},
+        "PilotScope": {"prompt": "What the pilot covers", "example": "the outpatient lab, routine chemistry panels only"},
+        "PilotDuration": {"prompt": "How long it runs", "example": "12 weeks"},
+        "TargetDate": {"prompt": "Target start (date or quarter)", "example": "Q3 2027"},
+        "SuccessCriteria": {"prompt": "Measurable success criteria", "example": "turnaround time under 45 minutes and no increase in repeat tests"},
+        "PilotFee": {"prompt": "Pilot fee (blank if unpaid)", "example": "$15,000", "optional": true},
+        "ConversionIntent": {"prompt": "What happens if the pilot succeeds", "example": "enter procurement discussions for a site-wide deployment", "optional": true},
+        "AnnualValue": {"prompt": "Indicative annual value if it converts, as a plain number", "example": "90000", "scoring_only": true}
+      }
+    },
+    "letter-of-support": {
+      "title": "Letter of support for a grant or program",
+      "use": "An organization supports your application and states what it would contribute.",
+      "fields": {
+        "ProgramName": {"prompt": "Grant or program you are applying to", "example": "NRC IRAP"},
+        "ProjectName": {"prompt": "Project name", "example": "Automated blood-test validation study"},
+        "SupportRole": {"prompt": "How they would take part", "example": "host the validation study and share anonymized results"},
+        "InKindContribution": {"prompt": "In-kind or cash contribution (blank if none)", "example": "40 hours of technologist time, valued at about $3,000", "optional": true},
+        "AnnualValue": {"prompt": "Annual value for your pipeline (0 if none)", "example": "0", "scoring_only": true}
+      }
+    },
+    "partnership": {
+      "title": "Partnership, channel or supplier",
+      "use": "A partner intends to resell, integrate, supply or co-develop.",
+      "fields": {
+        "PartnershipType": {"prompt": "Kind of partnership", "example": "distribution of the robot to independent labs in Ontario"},
+        "PartnerRole": {"prompt": "What the partner would do", "example": "introduce the product to its 60 lab customers and handle installation"},
+        "StartupRole": {"prompt": "What your company would do", "example": "supply units, training and second-line support"},
+        "CommercialTerms": {"prompt": "Commercial terms discussed", "example": "a 20% reseller margin"},
+        "TargetDate": {"prompt": "Target start (date or quarter)", "example": "Q4 2027"},
+        "AnnualValue": {"prompt": "Indicative annual value, as a plain number", "example": "200000", "scoring_only": true}
+      }
+    }
+  }
+}

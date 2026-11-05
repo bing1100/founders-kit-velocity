@@ -1,0 +1,6 @@
+Date,Person,Role,Organization,Method,Minutes,KnewBefore,Source,WouldPay,Quote,NextStep
+2026-08-04,Sarah Smith,lab directors,Example Regional Health,Call,35,No,Cold email,Yes,We lose two technologists a shift to routine panels,Send pilot outline
+2026-08-11,Alex Chen,chief technologists,Example General Hospital,In person,45,No,Conference,Yes,Overnight tests wait until morning,Site visit
+2026-08-19,Priya Patel,lab directors,Example University Hospital,Call,20,No,Referral,No,Procurement would take a year,Check back in Q2
+2026-09-02,Sam Lee,lab technologists,Example Labs Inc.,Call,30,Yes,Former colleague,No,I'd want to see error rates first,Share validation plan
+2026-09-14,Dana Roy,lab directors,Example Community Hospital,Survey,5,No,LinkedIn poll,No,,

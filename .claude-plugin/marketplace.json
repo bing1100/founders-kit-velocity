@@ -1,0 +1,12 @@
+{
+  "name": "founders-kit-velocity",
+  "owner": { "name": "Bing Hu" },
+  "metadata": { "description": "Skills and tools for Velocity and Waterloo founders." },
+  "plugins": [
+    {
+      "name": "velocity",
+      "source": "./",
+      "description": "14 skills for Velocity founders: application review, customer discovery, cold outreach, letters of intent, market sizing, funding, IP, pitching and fundraising."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+Company,Contact,Type,Status,AnnualValue,Currency,Created,Sent,Signed,Expires,NextStep
+Example Regional Health,Sarah Smith,pilot,Signed,120000,CAD,2026-10-01,2026-10-03,2026-10-20,2027-01-18,Scoping call by 2027-01-15
+Example General Hospital,Alex Chen,customer,Sent,45000,CAD,2026-10-05,2026-10-08,,2027-01-06,Follow up
+Example University Hospital,Priya Patel,health-pilot,Signed,90000,CAD,2026-07-01,2026-07-02,2026-07-20,2026-10-18,Renew
+Example Labs Inc.,Sam Lee,customer,Converted,30000,CAD,2026-05-01,2026-05-02,2026-05-10,2026-08-08,Delivered

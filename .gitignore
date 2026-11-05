@@ -1,0 +1,17 @@
+# Real prospect data stays out of the repository.
+*.local.csv
+*.local.json
+*.local.md
+*_sent_log.csv
+private/
+out/
+tools/loi-generator/output/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

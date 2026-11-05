@@ -1,0 +1,22 @@
+{
+  "segments": [
+    {
+      "name": "Ontario hospital labs",
+      "customers": 150,
+      "customers_source": "example figure: replace it with a count from a provincial directory",
+      "price_per_year": 45000,
+      "price_evidence": "2 lab directors named budgets of $40,000 to $60,000",
+      "conversion_percent": 10,
+      "conversion_reason": "we start with sites that lose technologist hours to routine panels"
+    },
+    {
+      "name": "independent community labs in Canada",
+      "customers": 900,
+      "customers_source": "example figure: replace it with a count from an industry association",
+      "price_per_year": 24000,
+      "price_evidence": "one owner said this replaces half a technologist",
+      "conversion_percent": 5,
+      "conversion_reason": "sold through a distributor that already serves them"
+    }
+  ]
+}

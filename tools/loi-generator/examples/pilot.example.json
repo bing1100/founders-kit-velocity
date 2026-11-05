@@ -1,0 +1,22 @@
+{
+  "Type": "pilot",
+  "Date": "2026-11-05",
+  "StartupName": "Northline Robotics Inc.",
+  "StartupDescription": "a bench-top robot that runs routine blood tests",
+  "StartupSignerName": "Jane Doe",
+  "StartupSignerTitle": "CEO",
+  "StartupEmail": "jane@northline.example",
+  "CounterpartyName": "Example Regional Health",
+  "SignerName": "Sarah Smith",
+  "SignerTitle": "Director of Laboratory Services",
+  "SignerEmail": "sarah.smith@example.org",
+  "Problem": "routine blood tests are run by hand, which ties up two technologists on every shift",
+  "PilotScope": "one robot running the top 5 routine panels on the day shift",
+  "PilotDuration": "8 weeks",
+  "TargetDate": "Q2 2027",
+  "SuccessCriteria": "95% agreement with manual results and a 30% reduction in technologist hours",
+  "PilotFee": "$10,000",
+  "ConversionIntent": "enter discussions to deploy at 3 further sites at about $40,000 per unit per year",
+  "NextStep": "a scoping call with the lab and IT teams by 2027-01-15",
+  "AnnualValue": "120000"
+}

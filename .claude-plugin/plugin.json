@@ -1,0 +1,8 @@
+{
+  "name": "velocity",
+  "description": "Claude skills for Velocity and Waterloo founders: application review, customer discovery, cold outreach, letters of intent, market sizing, funding, IP, pitching and fundraising.",
+  "version": "1.0.0",
+  "author": { "name": "Bing Hu" },
+  "repository": "https://github.com/bing1100/founders-kit-velocity",
+  "license": "MIT"
+}
