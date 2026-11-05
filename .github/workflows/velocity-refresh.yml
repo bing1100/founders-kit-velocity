@@ -1,0 +1,63 @@
+# Weekly check of Velocity's website. Opens a pull request when anything changed; never merges on its own.
+# Run it from the Actions tab ("Run workflow") or with a repository_dispatch webhook (event type "velocity-refresh").
+name: Velocity refresh
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"   # Mondays 13:00 UTC (8-9am Eastern)
+  workflow_dispatch:
+  repository_dispatch:
+    types: [velocity-refresh]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: velocity-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run tests
+        run: |
+          pip install --quiet python-docx
+          for dir in tools/loi-generator tools/velocity-check tools/velocity-radar; do
+            (cd "$dir" && python -m unittest discover -s tests)
+          done
+          python -m unittest discover -s scripts/tests
+
+      - name: Check Velocity's site and refresh the events list
+        run: python scripts/refresh.py --report "$RUNNER_TEMP/report.md"
+
+      - name: Check links
+        run: |
+          {
+            echo
+            echo "## Link check"
+            echo
+            echo '```'
+            python scripts/check_links.py || echo "Some links are broken: see above."
+            echo '```'
+          } >> "$RUNNER_TEMP/report.md"
+
+      - name: Open or update the pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automated/velocity-refresh
+          delete-branch: true
+          title: "Velocity refresh"
+          commit-message: "Refresh Velocity events list and page snapshot"
+          body-path: ${{ runner.temp }}/report.md
+          add-paths: |
+            README.md
+            data/velocity-pages.json

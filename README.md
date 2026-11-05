@@ -69,6 +69,7 @@ This kit builds on the [Founders Kit](https://github.com/avinash201199/founders-
 - [Founder Tools](#founder-tools)
 - [Claude Skills](#claude-skills)
 - [Startup Stack](#startup-stack)
+- [Keeping This Kit Current](#-keeping-this-kit-current)
 - [Contributing](#-contributing)
 
 ---
@@ -99,7 +100,19 @@ This kit builds on the [Founders Kit](https://github.com/avinash201199/founders-
 
 ## Events & Pitches
 
-> Dates are as of **2026-11-05**. Run `python tools/velocity-radar/radar.py` for a live list, or check the [Students page](https://www.velocityincubator.com/students).
+> The hand-written tables below were last checked on **2026-11-05**. The "Upcoming" list refreshes itself every week ([how](#-keeping-this-kit-current)). For a live list, run `python tools/velocity-radar/radar.py`, or check the [Students page](https://www.velocityincubator.com/students).
+
+### Upcoming (auto-updated)
+
+<!-- velocity-radar:start -->
+Events with a date in the next 90 days, read from velocityincubator.com by [velocity-radar](tools/velocity-radar/). Confirm on the event page before you plan around one.
+
+| Date | Event | Sign up |
+|---|---|---|
+| Mon Nov 16, 2026 | [The Co-op Workplace Simulation by Velocity](https://www.velocityincubator.com/programs-events/velocity-co-op-innovation-challenge) | [Sign up](https://airtable.com/appsLpsmcadbUEjvA/pagazyQHGqQcAlgml/form) |
+
+_Last changed: 2026-11-05_
+<!-- velocity-radar:end -->
 
 ### Happening Now
 
@@ -383,6 +396,43 @@ Curated from the [Founders Kit](https://github.com/avinash201199/founders-kit) f
 - [Product Hunt](https://www.producthunt.com/) · [Hacker News](https://news.ycombinator.com/) · [BetaList](https://betalist.com/) · [Indie Hackers](https://www.indiehackers.com/) · [r/startups](https://www.reddit.com/r/startups/)
 
 For hundreds more tools, by category, see the [original Founders Kit](https://github.com/avinash201199/founders-kit).
+
+---
+
+## 🔄 Keeping This Kit Current
+
+Velocity's pages change every term, and its site has no feed or webhooks. Two pieces of machinery keep this kit up to date, and both stop at a pull request so a person checks every change before founders see it.
+
+**1. Weekly GitHub Action** ([`.github/workflows/velocity-refresh.yml`](.github/workflows/velocity-refresh.yml)). Every Monday, and whenever it's triggered, it:
+- compares Velocity's sitemap with [`data/velocity-pages.json`](data/velocity-pages.json) and lists every page that was edited, added or removed, with the lines in this kit that link to it;
+- checks the Velocity Fund pages for changed text;
+- rewrites the **Upcoming (auto-updated)** events list above. That list is the only part changed automatically;
+- runs the tests and the link checker;
+- opens or updates a pull request titled **"Velocity refresh"**, with the report as its description. If nothing changed, no pull request is opened.
+
+There are three ways to run it:
+- **On a schedule:** automatic, every Monday.
+- **By hand:** *Actions* tab → **Velocity refresh** → **Run workflow**.
+- **From another service**, such as Zapier, Make or a cron job, by sending a webhook to GitHub:
+
+  ```bash
+  curl -X POST -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" \
+    https://api.github.com/repos/bing1100/founders-kit-velocity/dispatches -d '{"event_type":"velocity-refresh"}'
+  ```
+
+  Use a fine-grained token limited to this repository, with *Contents: read and write*. For example, a Zapier "new email from Velocity's newsletter" trigger can start a refresh the day news goes out.
+
+**2. The `kit-refresh` Claude skill** ([`.claude/skills/kit-refresh`](.claude/skills/kit-refresh/SKILL.md)) is for maintainers. It isn't part of the plugin founders install. It does the part that needs reading and judgment. It:
+- opens each page the report flags;
+- updates the hand-written tables: amounts, eligibility, deadlines and "Happening Now";
+- records any contradictions between Velocity's pages in [`docs/sources.md`](docs/sources.md);
+- runs every check, then opens a pull request listing each change and its source.
+
+To run it, clone the repository, open Claude Code in it, and type `/kit-refresh`. To run it on a schedule, use `/schedule` in Claude Code, for example *"every Monday at 10am, run /kit-refresh on bing1100/founders-kit-velocity"*.
+
+Run the Action first and the skill after: the skill builds on the Action's pull request when one is open.
+
+Nothing merges by itself. Review the pull request, and check any date or amount against its source page before merging.
 
 ---
 

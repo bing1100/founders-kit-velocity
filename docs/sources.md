@@ -33,6 +33,11 @@ Content is paraphrased and linked rather than copied. The text, logo and tradema
 
 ## Keeping this current
 
-1. `python tools/velocity-radar/radar.py --all` shows new or changed event pages.
-2. `python scripts/check_links.py` checks every link in the kit.
-3. Update "Last checked" dates when you verify a section.
+- **Automatically:** the weekly [Velocity refresh](../.github/workflows/velocity-refresh.yml) workflow compares the sitemap with [`data/velocity-pages.json`](../data/velocity-pages.json), refreshes the README's auto-updated events list, and opens a pull request listing every changed page. See the README's [Keeping This Kit Current](../README.md#-keeping-this-kit-current) section.
+- **With Claude:** run `/kit-refresh` in Claude Code from a clone of the repository to check the flagged pages and update the hand-written tables.
+- **By hand:**
+  - `python scripts/refresh.py --check` shows what changed;
+  - `python tools/velocity-radar/radar.py --all` lists every event page;
+  - `python scripts/check_links.py` checks every link.
+
+Update the "Last checked" dates only for sections you verified.
